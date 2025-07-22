@@ -1,1 +1,441 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portofolio Ferlan Firmansyah, spesialis digital marketing, dropshipping, affiliate marketing, copywriting, dan manajemen media sosial.">
+  <meta name="keywords" content="digital marketing, dropshipping, affiliate marketing, copywriting, content creator, media sosial, Ferlan Firmansyah">
+  <meta name="author" content="Ferlan Firmansyah">
+  <title>Portofolio Ferlan Firmansyah - Digital Marketing</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Roboto:wght@900&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #121212;
+      color: #fff;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    header {
+      position: sticky;
+      top: 0;
+      background: rgba(18, 18, 18, 0.9);
+      backdrop-filter: blur(10px);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+    }
+    nav a {
+      color: #00FFFF;
+      text-decoration: none;
+      margin: 0 1.0rem;
+      font-size: 1.0rem;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #FF00FF;
+    }
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: linear-gradient(135deg, #121212, #1a1a1a);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero h1 {
+      font-family: 'Roboto', sans-serif;
+      font-size: 3.5rem;
+      color: #FF00FF;
+      text-shadow: 0 0 10px rgba(255, 0, 255, 0.5);
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      font-size: 1.5rem;
+      color: #FFFF00;
+      max-width: 600px;
+      margin-bottom: 2rem;
+    }
+    .cta {
+      padding: 1rem 2rem;
+      background: #00FFFF;
+      color: #121212;
+      border: none;
+      border-radius: 50px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .cta:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+    }
+    section {
+      padding: 4rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .about img {
+      border-radius: 50%;
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      margin-bottom: 1rem;
+      border: 3px solid #00FFFF;
+    }
+    .about h2, .skills h2, .portfolio h2, .services h2, .testimonials h2, .contact h2 {
+      font-family: 'Roboto', sans-serif;
+      font-size: 2.5rem;
+      color: #FF00FF;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+    .skill-item {
+      background: #1a1a1a;
+      padding: 1.5rem;
+      border-radius: 10px;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+    .skill-item:hover {
+      transform: translateY(-10px);
+    }
+    .skill-bar {
+      height: 10px;
+      background: #444;
+      border-radius: 5px;
+      overflow: hidden;
+      margin-top: 1rem;
+    }
+    .skill-bar-fill {
+      height: 100%;
+      background: #FF00FF;
+      transition: width 1.5s ease-in-out;
+    }
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    .portfolio-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    .portfolio-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      transition: transform 0.3s;
+    }
+    .portfolio-item:hover img {
+      transform: scale(1.1);
+    }
+    .portfolio-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 255, 255, 0.8);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .portfolio-item:hover .portfolio-overlay {
+      opacity: 1;
+    }
+    .portfolio-overlay h3 {
+      color: #121212;
+      font-size: 1.5rem;
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+    .service-item {
+      background: #1a1a1a;
+      padding: 2rem;
+      border-radius: 10px;
+      text-align: center;
+    }
+    .service-item i {
+      font-size: 2.5rem;
+      color: #00FFFF;
+      margin-bottom: 1rem;
+    }
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    .testimonial-item {
+      background: #1a1a1a;
+      padding: 2rem;
+      border-radius: 10px;
+      text-align: center;
+    }
+    .contact form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .contact input, .contact textarea {
+      padding: 1rem;
+      background: #1a1a1a;
+      border: 1px solid #00FFFF;
+      border-radius: 5px;
+      color: #fff;
+    }
+    .contact button {
+      padding: 1rem;
+      background: #FF00FF;
+      color: #121212;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+    .contact button:hover {
+      transform: scale(1.05);
+    }
+    footer {
+      background: #1a1a1a;
+      padding: 1rem;
+      text-align: center;
+    }
+    footer a {
+      color: #00FFFF;
+      text-decoration: none;
+      margin: 0 1rem;
+    }
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+頻
+      .hero p {
+        font-size: 1.2rem;
+      }
+      nav a {
+        margin: 0 0.5rem;
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="#about">Tentang</a>
+      <a href="#skills">Keahlian</a>
+      <a href="#portfolio">Portofolio</a>
+      <a href="#services">Services</a>
+      <a href="#testimonials">Testimoni</a>
+      <a href="#contact">Kontak</a>
+    </nav>
+  </header>
 
+  <section class="hero">
+    <h1>Ferlan Firmansyah</h1>
+    <p>Digital Marketing dan Spesialis Media Sosial</p>
+    <p>Mentransformasi bisnis dengan strategi digital marketing dan konten kreatif</p>
+    <button class="cta" onclick="scrollToSection('portfolio')">Lihat Karya Saya</button>
+  </section>
+
+  <section class="about" id="about">
+    <h2>Tentang Saya</h2>
+    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh1Lp1ZnBVSTkOqkdQU1HafHm-D7E9Ok13lyN1xwk29U6k3xqaAbwBLSF05Har2349xqlSlRDxeSSiuHswGDi3iF7gY-lJCvVkLs9BDYDtUEkd1bBoOO5jiAJrH_75Rh_yCwJ0hlsBRHGAgig6U7sbiubZRlL_RJaKy_rUOc9jerCAEDoMbQCvnFmLiabZJ/s1600/IMG_20231011_161138.jpg" alt="Foto Profil Ferlan Firmansyah">
+    <p>Saya adalah spesialis digital marketing dengan pengalaman lebih dari 5 tahun di bidang dropshipping, affiliate marketing, copywriting, comunity dan manajemen media sosial. Saya meningkatkan income melalui strategi kreatif dan teknologi modern.</p>
+    <p>Kehilangan tas berisi beberapa laptop dan handphone membuat ekonomi saya terpuruk, kini saya mencoba bangkit lagi dengan mencoba melamar pekerjaan ke UMKM disekitar domisili saya.</p>
+  </section>
+
+  <section class="skills" id="skills">
+    <h2>Keahlian</h2>
+    <div class="skills-grid">
+      <div class="skill-item">
+        <h3>Dropshipping</h3>
+        <div class="skill-bar"><div class="skill-bar-fill" style="width: 85%"></div></div>
+      </div>
+      <div class="skill-item">
+        <h3>Affiliate Marketing</h3>
+        <div class="skill-bar"><div class="skill-bar-fill" style="width: 95%"></div></div>
+      </div>
+      <div class="skill-item">
+        <h3>Copywriting</h3>
+        <div class="skill-bar"><div class="skill-bar-fill" style="width: 75%"></div></div>
+      </div>
+      <div class="skill-item">
+        <h3>Content Creation</h3>
+        <div class="skill-bar"><div class="skill-bar-fill" style="width: 70%"></div></div>
+      </div>
+      <div class="skill-item">
+        <h3>Sosial Media</h3>
+        <div class="skill-bar"><div class="skill-bar-fill" style="width: 80%"></div></div>
+      </div>
+      <div class="skill-item">
+        <h3>HTML/CSS/JS</h3>
+        <div class="skill-bar"><div class="skill-bar-fill" style="width: 85%"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="portfolio" id="portfolio">
+    <h2>Portofolio</h2>
+    <div class="portfolio-grid">
+      <div class="portfolio-item">
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg-BqW9q5GNVB6QStRvF5pQEHmdEPhUL3h7sAF0kOjfHLkKzQn7FdwvDku2OmFDFxHII5a2YEIHZbJvahEq1xu8JSTapDadeVLLCQEIxDhuXfmAX7AWWOjik0D5yw14vfihR_q1IZpi8DQlfSrKwao1fQHINDoq7qrRXgJVzfJ_wH3DiSt_9PmOBTRa7gZE/s1600/main-qimg-f2fad62813764766e15b810800dbd4f8-lq.jpeg" alt="Proyek Dropshipping">
+        <div class="portfolio-overlay">
+          <h3>Dropshipping</h3>
+          <p>Mendapatkan penghasilan 30% tiap produk dari bisnis dropshipper</p>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgPFZ2liQkP_WibT7-YFl5KvQ2uM2bVGf1CPQvnuJo3b0heGmuOgBYEPDyr2NgmOQd-QMG99C25IU84abxAjXFirm6xmJOVX6qoqWKttbCUlQXt04V3gbj29PM1uFftgUnpaiKGRDv6GQA4omcW7L2dlYqX777n9uRV3pcBtUn3a0qKOj9eURG6mQXpQNsM/s1600/IMG_20250721_174213_948.jpg" alt="Kampanye Affiliate">
+        <div class="portfolio-overlay">
+          <h3>Affiliate</h3>
+          <p>Salah satu berita online yang memberitakan performa saya pada Tokopedia Affiliate.</p>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiYYugOsM1gfQijXRZ5BFN61ov5gA8AWkhaX9EDmYZshyphenhyphenyc35sUpRLjyLkl3ypWQSxalfH6cGO_RchyYt883zq0Spx181AEQcEEszpnyvY4AsNzEDch9ipjN4010w8hHrrtaqNTRSVMZ2c4rPdepR1dR33QM-7nH2fmUNXQwPPGLxdEAFDWAGfbLW1qrlUg/s1600/IMG_20191209_224408_311.jpg" alt="Konten Media Sosial">
+        <div class="portfolio-overlay">
+          <h3>User Comunity Shopee Indonesia</h3>
+          <p>Menjadi leader user comunity Shopee untuk regional Banten.</p>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhpI3JDpLji-eeAj5DCTjdwnFciVhez9M61SjMI9c1XHy341NLAeCW6zIROX32BQtL3kh_YyldI4FV8TSjHfH2gRMA-XM6x-WtlnDCIfc0KcSVzFY1FKfMrn8FuC2zomTqPo5izOdE0iyGwHOse6I1k1NmqA65FcW-SnU29BVFbUuxRrBcxbLE2N2KRbsiY/s1600/GEMBIRA-1236.jpg" alt="Konten Media Sosial">
+        <div class="portfolio-overlay">
+          <h3>Ambasador Dan Admin Comunity Akademi Kreator Tokopedia.</h3>
+          <p>Ambasador dan Admin Komunitas Akademi Kreator Tokopedia di acara AFFILIATE GEMBIRA 2022.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="services" id="services">
+    <h2>Services</h2>
+    <div class="services-grid">
+      <div class="service-item">
+        <i class="fas fa-store"></i>
+        <h3>Dropshipping</h3>
+        <p>Membangun toko online yang menguntungkan tanpa perlu stok produk dan capek packing paket.</p>
+      </div>
+      <div class="service-item">
+        <i class="fas fa-link"></i>
+        <h3>Strategi Affiliate</h3>
+        <p>Mengoptimalkan pendapatan melalui program afiliasi.</p>
+      </div>
+      <div class="service-item">
+        <i class="fas fa-pen"></i>
+        <h3>Copywriting</h3>
+        <p>Membuat teks persuasif untuk iklan dan landing page.</p>
+      </div>
+      <div class="service-item">
+        <i class="fas fa-video"></i>
+        <h3>Blog & Konten Maker</h3>
+        <p>Video dan grafis menarik untuk media sosial.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonials" id="testimonials">
+    <h2>Testimoni</h2>
+    <div class="testimonials-grid">
+      <div class="testimonial-item">
+        <p>"Ferlan, membantu membuat web organisasi kami dengan strategi digital yang mantap!"</p>
+        <h4>- Riski, Ketua Bidang VIII BPC HIPMI Kab. Biak Numfor- Papua</h4>
+      </div>
+      <div class="testimonial-item">
+        <p>"Dibantu membuat dan merancang web www.ruangsendiri.com saat sedang mengikuti ajang finalis Duta Siswa."</p>
+        <h4>- Sheila, Duta Siswa 2025</h4>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <h2>Kontak</h2>
+    <form action="https://formspree.io/f/your-form-id" method="POST">
+      <input type="text" name="name" placeholder="Nama" required>
+      <input type="email" name="email" placeholder="Email" required>
+      <textarea name="message" placeholder="Pesan" rows="5" required></textarea>
+      <button type="submit">Kirim</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>© 2025 Ferlan Firmansyah. All Rights Reserved.</p>
+    <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script>
+    // Fungsi untuk scroll ke section
+    function scrollToSection(sectionId) {
+      document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Animasi Hero Section
+    gsap.from(".hero h1", { opacity: 0, y: 50, duration: 1, delay: 0.5 });
+    gsap.from(".hero p", { opacity: 0, y: 50, duration: 1, delay: 0.7 });
+    gsap.from(".cta", { opacity: 0, scale: 0.5, duration: 1, delay: 0.9 });
+
+    // Animasi Skill Bar saat scroll
+    gsap.utils.toArray(".skill-bar-fill").forEach(bar => {
+      gsap.to(bar, {
+        scrollTrigger: {
+          trigger: bar,
+          start: "top 80%",
+        },
+        width: bar.style.width,
+        duration: 1.5,
+        ease: "power2.out"
+      });
+    });
+
+    // Animasi Portfolio Item
+    gsap.utils.toArray(".portfolio-item").forEach(item => {
+      gsap.from(item, {
+        scrollTrigger: {
+          trigger: item,
+          start: "top 80%",
+        },
+        opacity: 0,
+        y: 50,
+        duration: 1
+      });
+    });
+
+    // Simulasi pengiriman formulir (opsional jika Formspree tidak digunakan)
+    document.querySelector('form').addEventListener('submit', (e) => {
+      // Formspree akan menangani pengiriman, tetapi tambahkan alert untuk pengujian
+      alert('Pesan telah dikirim! Anda akan segera dihubungi.');
+    });
+  </script>
+</body>
+  </html>
